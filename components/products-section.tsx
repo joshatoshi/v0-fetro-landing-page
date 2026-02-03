@@ -49,6 +49,7 @@ const products = [
       "/images/3a.jpeg",
       "/images/3b.jpeg",
       "/images/3c.jpeg",
+      "/images/2b3.jpeg",
     ],
   },
 ]
