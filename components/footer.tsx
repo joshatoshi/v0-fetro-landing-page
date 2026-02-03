@@ -7,16 +7,8 @@ const footerLinks = {
     { name: "MIDI Retrofits", href: "#products" },
     { name: "1-of-1 Consulting", href: "#products" },
   ],
-  resources: [
-    { name: "Documentation", href: "#" },
-    { name: "Design Files", href: "#" },
-    { name: "Our Story", href: "#philosophy" },
-    { name: "GitHub", href: "#" },
-  ],
   company: [
-    { name: "Philosophy", href: "#philosophy" },
     { name: "Team", href: "#team" },
-    { name: "Careers", href: "#" },
     { name: "Contact", href: "#contact" },
   ],
   legal: [
@@ -72,24 +64,6 @@ export function Footer() {
 
           <div>
             <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
-              Resources
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href} 
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
               Company
             </h3>
             <ul className="mt-4 space-y-3">
@@ -122,27 +96,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
-          <div className="flex items-center gap-6">
-            <a href="#" className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary">
-              Twitter
-            </a>
-            <a href="#" className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary">
-              GitHub
-            </a>
-            <a href="#" className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary">
-              Discord
-            </a>
-            <a href="#" className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary">
-              LinkedIn
-            </a>
-          </div>
-          <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-            All systems operational
-          </div>
-        </div>
+        
       </div>
     </footer>
   )

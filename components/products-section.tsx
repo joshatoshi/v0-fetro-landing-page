@@ -186,8 +186,8 @@ export function ProductsSection() {
             <span className="text-balance">Handbuilt Devices for the Modern Era</span>
           </h2>
           <p className="mt-4 text-pretty text-lg text-muted-foreground">
-            Each Fetro creation is handcrafted with care, combining premium materials 
-            and meticulous attention to detail with cutting-edge technology.
+            Each Fetro creation is handcrafted with care, combining curious experimentation 
+            and attention to detail with cutting-edge technology.
           </p>
         </div>
 

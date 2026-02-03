@@ -2,7 +2,7 @@ import { User } from "lucide-react"
 
 const team = [
   {
-    name: "Alex Kovalenko",
+    name: "Joshatoshi",
     role: "CTO",
     bio: "Former hardware engineer at leading tech companies. Passionate about bridging analog craftsmanship with cutting-edge technology.",
   },
