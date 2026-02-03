@@ -61,7 +61,7 @@ export function ContactSection() {
                 </Button>
               </div>
               <p className="mt-3 font-mono text-xs text-muted-foreground">
-                No spam. Unsubscribe anytime. Your data stays with us.
+                No spam. Unsubscribe anytime.
               </p>
             </form>
           )}
