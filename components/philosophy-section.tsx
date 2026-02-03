@@ -67,7 +67,7 @@ export function PhilosophySection() {
             <p className="text-pretty">
               We{"'"}re building things different. Fetro devices are inspired by the era where 
               materials developed a patina while housing technology designed to integrate 
-              to the modern digital world of AI, blockchains, and accelerated hardware.
+              with the modern digital world of AI, blockchains, and accelerated hardware.
             </p>
           </div>
         </div>
