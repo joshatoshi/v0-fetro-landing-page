@@ -1,16 +1,16 @@
-import { Monitor, Cpu, Network, Fingerprint } from "lucide-react"
+import { Cpu, Cloud, Network, Fingerprint } from "lucide-react"
 
 const technologies = [
   {
-    icon: Monitor,
-    title: "E-Ink Displays",
-    description: "Low-power, paper-like displays that are easy on the eyes and evoke the tactile feel of vintage devices.",
+    icon: Cpu,
+    title: "Modern Hardware",
+    description: "Whether it's low power paper-like displays that are easy on the eyes, modern microcontrollers or secure environments - we hack with it all.",
     link: "Learn More",
   },
   {
-    icon: Cpu,
-    title: "AI-Enhanced",
-    description: "Intelligent features powered by on-device AI, enabling smart functionality while keeping your data private.",
+    icon: Cloud,
+    title: "Cloud, P2P, and AI Enhanced",
+    description: "Intelligent features powered by on-device node operation, or contacting external servers enabling smart functionality while keeping your data private.",
     link: "Learn More",
   },
   {
@@ -47,8 +47,8 @@ export function TechnologySection() {
             <span className="text-balance">Combining Modern Tech with Nostalgic Device Concepts</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg text-muted-foreground">
-            We believe in blending the best of both worlds: e-ink, AI, Web3, and zero-knowledge 
-            technology, all wrapped in designs that feel timeless and familiar.
+            We believe in blending the best of both worlds: AI, Web3, Cloud, Peer to peer networking, 
+            zero-knowledge and quantum resistant technologies, all wrapped in designs that feel timeless and familiar.
           </p>
         </div>
 
