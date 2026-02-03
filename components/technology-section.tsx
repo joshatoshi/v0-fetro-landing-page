@@ -1,4 +1,4 @@
-import { Cpu, Cloud } from "lucide-react"
+import { Cpu, Cloud, Network, Fingerprint } from "lucide-react"
 
 const technologies = [
   {
@@ -11,6 +11,18 @@ const technologies = [
     icon: Cloud,
     title: "Cloud, P2P, and AI Enhanced",
     description: "Intelligent features powered by on-device node operation, or contacting external servers enabling smart functionality while keeping your data private.",
+    link: "Learn More",
+  },
+  {
+    icon: Network,
+    title: "Web3 Native",
+    description: "Native integration with decentralized networks. Self-custody, on-chain verification, and sovereign identity built-in.",
+    link: "Learn More",
+  },
+  {
+    icon: Fingerprint,
+    title: "Zero-Knowledge",
+    description: "Prove statements without revealing underlying data. Authenticate, verify, and transact while maintaining complete privacy.",
     link: "Learn More",
   },
 ]
