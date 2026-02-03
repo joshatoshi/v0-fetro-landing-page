@@ -7,7 +7,6 @@ const devices = [
   {
     name: "Mobile Phone",
     label: "FETRO PHONE",
-    subtitle: "Nokia 3310 Platform",
     parts: [
       { id: "mic", label: "Agentic AI\nInstructor Mic", x: -120, y: -80 },
       { id: "cpu", label: "Updated CPU", x: 120, y: 0 },
@@ -17,7 +16,6 @@ const devices = [
   {
     name: "Guitar",
     label: "FETRO GUITAR",
-    subtitle: "Les Paul Platform",
     parts: [
       { id: "pickups", label: "Noiseless\nPickups", x: -130, y: -60 },
       { id: "midi", label: "Onboard Programmable\nMIDI Controller", x: 130, y: 0 },
@@ -27,7 +25,6 @@ const devices = [
   {
     name: "Camcorder",
     label: "DSLR1",
-    subtitle: "DCR-VX1000 Platform",
     parts: [
       { id: "cooling", label: "Intelligent\nCooling", x: -140, y: -90 },
       { id: "zk", label: "ZK Attested\nSensor Data", x: 140, y: -50 },
@@ -282,9 +279,6 @@ export function HeroAnimation() {
             <span className="font-mono text-xs tracking-[0.2em] text-foreground">
               {device.label}
             </span>
-            <p className="font-mono text-[9px] text-muted-foreground">
-              {device.subtitle}
-            </p>
           </motion.div>
         </div>
 
