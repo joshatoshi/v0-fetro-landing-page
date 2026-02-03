@@ -4,17 +4,17 @@ const team = [
   {
     name: "Joshatoshi",
     role: "CTO",
-    bio: "Former hardware engineer at leading tech companies. Passionate about bridging analog craftsmanship with cutting-edge technology.",
+    bio: "Former enterprise risk quant at leading fintech firm. 15 yrs experience as a Web3 entrepreneur and hardware hacker. Passionate about upcycling and bridging the nostalgic analog era's craftsmanship with cutting-edge technology.",
   },
   {
-    name: "Jordan Chen",
+    name: "Gamey",
     role: "CMO",
     bio: "Brand strategist with a decade of experience in premium consumer electronics. Believes great products tell great stories.",
   },
   {
     name: "Sam Rivera",
     role: "Fabrication Design Head",
-    bio: "Master craftsperson with background in industrial design and traditional watchmaking. Leads our handbuilt device assembly.",
+    bio: "CAD genius in the aerodynamics and motorsports field.",
   },
 ]
 
