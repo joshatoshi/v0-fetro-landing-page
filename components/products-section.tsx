@@ -38,7 +38,7 @@ const products = [
   },
   {
     icon: Wrench,
-    name: "One-of-One Consulting",
+    name: "One Shot Consulting",
     tagline: "Bespoke Build Services",
     description: "Custom R&D and fabrication consulting for unique projects. From concept to completion, we bring together hardware and software expertise.",
     specs: ["Software development", "CAD, 3D modeling, Woodwork & enclosures", "Electronics & Hardware, PCB design & assembly"],
@@ -104,19 +104,6 @@ function ProductCard({ product }: { product: typeof products[0] }) {
             }`}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-card" />
-          {/* Image indicator dots */}
-          {product.images.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-1.5">
-              {product.images.map((_, idx) => (
-                <div
-                  key={idx}
-                  className={`h-1.5 w-1.5 rounded-full transition-colors ${
-                    idx === currentImageIndex ? "bg-primary" : "bg-foreground/30"
-                  }`}
-                />
-              ))}
-            </div>
-          )}
         </div>
       )}
 

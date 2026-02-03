@@ -2,12 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 
 const footerLinks = {
-  products: [
-    { name: "DSLR1", href: "https://cryptoc.am" },
-    { name: "MIDI Retrofits", href: "#products" },
-    { name: "1-of-1 Consulting", href: "#products" },
-  ],
-  company: [
+  project: [
     { name: "Team", href: "#team" },
     { name: "Contact", href: "#contact" },
   ],
@@ -43,56 +38,43 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Links Columns */}
-          <div>
-            <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
-              Products
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {footerLinks.products.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href} 
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Links Columns - Project and Legal inline */}
+          <div className="lg:col-span-3 flex flex-wrap gap-16">
+            <div>
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
+                Project
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.project.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      href={link.href} 
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
-              Company
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href} 
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <h3 className="mt-8 font-mono text-xs font-semibold uppercase tracking-wider text-primary">
-              Legal
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <Link 
-                    href={link.href} 
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
+                Legal
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.legal.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      href={link.href} 
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
