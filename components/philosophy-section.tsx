@@ -1,9 +1,54 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import Image from "next/image"
+
+const nostalgicImages = [
+  { src: "/images/nostalgic-phone.jpg", position: "center 60%" },
+  { src: "/images/nostalgic-mp3.jpg", position: "center center" }, 
+  { src: "/images/nostalgic-camcorder.jpg", position: "center center" },
+]
+
 export function PhilosophySection() {
+  const [currentImage, setCurrentImage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % nostalgicImages.length)
+    }, 1500) // Fast cuts - 1.5 seconds per image
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <section id="philosophy" className="relative py-24 lg:py-32 bg-muted/30">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="philosophy" className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Animated Background Slideshow */}
+      <div className="absolute inset-0">
+        {nostalgicImages.map((image, index) => (
+          <div
+            key={image.src}
+            className={`absolute inset-0 transition-opacity duration-300 ${
+              index === currentImage ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={image.src || "/placeholder.svg"}
+              alt=""
+              fill
+              className="object-cover grayscale scale-110"
+              style={{ objectPosition: image.position }}
+              sizes="100vw"
+              priority={index === 0}
+            />
+          </div>
+        ))}
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 font-mono text-sm text-primary">OUR PHILOSOPHY</p>
+          <p className="mb-4 font-mono text-sm text-primary">OUR STORY</p>
           <h2 className="font-sans text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-5xl">
             <span className="text-balance">We Believe Technology Should Age Gracefully</span>
           </h2>
@@ -11,37 +56,19 @@ export function PhilosophySection() {
           <div className="mt-10 space-y-6 text-lg text-muted-foreground">
             <p className="text-pretty">
               The most beloved objects in our lives are often the oldest. A grandfather{"'"}s watch, 
-              a vintage radio, a well-worn leather bag. These items carry stories and develop 
+              a vintage hifi, a well-worn leather bag. These items carry stories and develop 
               character over time.
             </p>
             <p className="text-pretty">
-              Meanwhile, our digital devices have become disposable—sleek but soulless, 
+              Meanwhile, our digital devices have become disposable, sleek but soulless, 
               designed for planned obsolescence and built with materials that will outlast 
               civilizations in landfills.
             </p>
             <p className="text-pretty">
-              We{"'"}re building something different. Fetro devices are crafted from brass, 
-              walnut, and materials that develop a patina—while housing technology 
-              designed to remain relevant for decades.
+              We{"'"}re building things different. Fetro devices are inspired by the era where 
+              materials developed a patina while housing technology designed to integrate 
+              with the modern digital world of AI, blockchains, and accelerated hardware.
             </p>
-          </div>
-
-          <div className="mt-12 border-t border-border pt-12">
-            <blockquote className="relative">
-              <p className="text-xl font-medium italic text-foreground">
-                {'"'}The future of privacy shouldn{"'"}t look like the future. 
-                It should feel like something you{"'"}d want to pass down.{'"'}
-              </p>
-              <footer className="mt-6 flex items-center justify-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <span className="font-mono text-sm text-primary">AK</span>
-                </div>
-                <div className="text-left">
-                  <p className="font-sans text-sm font-medium text-foreground">Alex Kovalenko</p>
-                  <p className="font-mono text-xs text-muted-foreground">Founder & CTO</p>
-                </div>
-              </footer>
-            </blockquote>
           </div>
         </div>
       </div>

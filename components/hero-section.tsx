@@ -25,7 +25,7 @@ export function HeroSection() {
             <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5">
               <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
               <span className="font-mono text-xs text-primary">
-                Handbuilt Hybrid Devices
+                Future Retro Devices
               </span>
             </div>
 
@@ -53,14 +53,10 @@ export function HeroSection() {
             </div>
 
             {/* Stats Row */}
-            <div className="mt-16 grid grid-cols-3 gap-8 border-t border-border pt-8">
+            <div className="mt-16 grid grid-cols-2 gap-8 border-t border-border pt-8">
               <div>
                 <p className="font-mono text-3xl font-bold text-primary">100%</p>
-                <p className="mt-1 font-mono text-xs text-muted-foreground">Handcrafted</p>
-              </div>
-              <div>
-                <p className="font-mono text-3xl font-bold text-primary">3</p>
-                <p className="mt-1 font-mono text-xs text-muted-foreground">Product Lines</p>
+                <p className="mt-1 font-mono text-xs text-muted-foreground">Curious Experimentation</p>
               </div>
               <div>
                 <p className="font-mono text-3xl font-bold text-primary">2026</p>
