@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 
 const nostalgicImages = [
-  "/images/nostalgic-phone.jpg",
-  "/images/nostalgic-mp3.jpg", 
-  "/images/nostalgic-camcorder.jpg",
+  { src: "/images/nostalgic-phone.jpg", position: "center 60%" },
+  { src: "/images/nostalgic-mp3.jpg", position: "center center" }, 
+  { src: "/images/nostalgic-camcorder.jpg", position: "center center" },
 ]
 
 export function PhilosophySection() {
@@ -24,18 +24,19 @@ export function PhilosophySection() {
     <section id="philosophy" className="relative py-24 lg:py-32 overflow-hidden">
       {/* Animated Background Slideshow */}
       <div className="absolute inset-0">
-        {nostalgicImages.map((src, index) => (
+        {nostalgicImages.map((image, index) => (
           <div
-            key={src}
+            key={image.src}
             className={`absolute inset-0 transition-opacity duration-300 ${
               index === currentImage ? "opacity-100" : "opacity-0"
             }`}
           >
             <Image
-              src={src || "/placeholder.svg"}
+              src={image.src || "/placeholder.svg"}
               alt=""
               fill
-              className="object-cover grayscale"
+              className="object-cover grayscale scale-110"
+              style={{ objectPosition: image.position }}
               sizes="100vw"
               priority={index === 0}
             />
