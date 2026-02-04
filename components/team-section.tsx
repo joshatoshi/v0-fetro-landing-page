@@ -61,15 +61,9 @@ export function TeamSection() {
           style={{
             filter: "grayscale(100%) contrast(1.1) brightness(0.9)",
           }}
-          onLoadedData={() => console.log("[v0] Team video loaded successfully")}
-          onError={(e) => console.log("[v0] Team video error:", e)}
-          onCanPlay={() => {
-            console.log("[v0] Team video can play")
-            videoRef.current?.play()
-          }}
+          
         >
-          <source src="/videos/team-background.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="/images/background.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-background/70" />
