@@ -28,21 +28,21 @@ export function TeamSection() {
     const video = videoRef.current
     if (!video) return
 
-    // Random glitch effect - occasionally pause and jump
+    let isGlitching = false
+
+    // Random glitch effect - occasionally create small time jumps
     const glitchInterval = setInterval(() => {
-      if (Math.random() > 0.7) {
-        // 30% chance of glitch
-        video.pause()
+      if (!isGlitching && Math.random() > 0.7 && video.duration) {
+        isGlitching = true
+        // Small random time jump for stutter effect (no pause/play, just time jump)
+        const jumpAmount = (Math.random() - 0.5) * 0.3
+        video.currentTime = Math.max(0, Math.min(video.duration - 0.1, video.currentTime + jumpAmount))
+        
         setTimeout(() => {
-          // Small random time jump for stutter effect
-          if (video.duration) {
-            const jumpAmount = (Math.random() - 0.5) * 0.5
-            video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + jumpAmount))
-          }
-          video.play()
-        }, 50 + Math.random() * 100)
+          isGlitching = false
+        }, 150)
       }
-    }, 2000 + Math.random() * 3000)
+    }, 2500)
 
     return () => clearInterval(glitchInterval)
   }, [])
