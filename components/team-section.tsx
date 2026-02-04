@@ -3,7 +3,7 @@
 import { User } from "lucide-react"
 import { useEffect, useRef } from "react"
 
-const TEAM_VIDEO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/background-YW0QwVErDGh9lwOgFKCA3TFFMZinhu.mp4"
+const TEAM_VIDEO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_zDDdqN090fDTY7fVEhJj6VIp3qsQ/DOjatWxmUjZqX-zmocLAiG/public/images/background.mp4"
 
 const team = [
   {

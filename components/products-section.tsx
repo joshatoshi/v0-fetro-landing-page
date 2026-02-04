@@ -95,13 +95,16 @@ function ProductCard({ product }: { product: typeof products[0] }) {
       {/* Hover Image Overlay */}
       {showImages && (
         <div className="absolute inset-0 bottom-16 z-10 overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={product.images[currentImageIndex] || "/placeholder.svg"}
             alt={`${product.name} showcase`}
-            className={`h-full w-full object-cover transition-all duration-300 ${
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className={`object-cover transition-all duration-300 ${
               isLearnMoreHovered ? "" : "grayscale"
             }`}
+            quality={75}
+            priority={false}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-card" />
         </div>
