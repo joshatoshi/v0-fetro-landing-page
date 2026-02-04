@@ -3,6 +3,8 @@
 import { User } from "lucide-react"
 import { useEffect, useRef } from "react"
 
+const TEAM_VIDEO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/background-YW0QwVErDGh9lwOgFKCA3TFFMZinhu.mp4"
+
 const team = [
   {
     name: "Joshatoshi",
@@ -61,9 +63,8 @@ export function TeamSection() {
           style={{
             filter: "grayscale(100%) contrast(1.1) brightness(0.9)",
           }}
-          
+          src={TEAM_VIDEO_URL}
         >
-          <source src="/images/background.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-background/70" />
