@@ -1,4 +1,7 @@
+"use client"
+
 import { User } from "lucide-react"
+import { useEffect, useRef } from "react"
 
 const team = [
   {
@@ -19,9 +22,61 @@ const team = [
 ]
 
 export function TeamSection() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    let isGlitching = false
+
+    // Random glitch effect - occasionally create small time jumps
+    const glitchInterval = setInterval(() => {
+      if (!isGlitching && Math.random() > 0.7 && video.duration) {
+        isGlitching = true
+        // Small random time jump for stutter effect (no pause/play, just time jump)
+        const jumpAmount = (Math.random() - 0.5) * 0.3
+        video.currentTime = Math.max(0, Math.min(video.duration - 0.1, video.currentTime + jumpAmount))
+        
+        setTimeout(() => {
+          isGlitching = false
+        }, 150)
+      }
+    }, 2500)
+
+    return () => clearInterval(glitchInterval)
+  }, [])
+
   return (
-    <section id="team" className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="team" className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover"
+          style={{
+            filter: "grayscale(100%) contrast(1.1) brightness(0.9)",
+          }}
+          
+        >
+          <source src="/images/background.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-background/70" />
+        {/* Scanline effect for retro feel */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)",
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16 text-center">
           <p className="mb-4 font-mono text-sm text-primary">OUR TEAM</p>
@@ -39,10 +94,10 @@ export function TeamSection() {
           {team.map((member) => (
             <div 
               key={member.name}
-              className="group rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
+              className="group rounded-lg border border-border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
             >
               {/* Placeholder Avatar */}
-              <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border-2 border-border bg-muted transition-colors group-hover:border-primary/30">
+              <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border-2 border-border bg-muted/80 transition-colors group-hover:border-primary/30">
                 <User className="h-16 w-16 text-muted-foreground" />
               </div>
 
