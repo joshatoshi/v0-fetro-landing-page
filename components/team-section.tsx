@@ -50,22 +50,29 @@ export function TeamSection() {
   return (
     <section id="team" className="relative py-24 lg:py-32 overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="h-full w-full object-cover grayscale"
+          className="h-full w-full object-cover"
           style={{
             filter: "grayscale(100%) contrast(1.1) brightness(0.9)",
           }}
+          onLoadedData={() => console.log("[v0] Team video loaded successfully")}
+          onError={(e) => console.log("[v0] Team video error:", e)}
+          onCanPlay={() => {
+            console.log("[v0] Team video can play")
+            videoRef.current?.play()
+          }}
         >
           <source src="/videos/team-background.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-background/85" />
+        <div className="absolute inset-0 bg-background/70" />
         {/* Scanline effect for retro feel */}
         <div 
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
