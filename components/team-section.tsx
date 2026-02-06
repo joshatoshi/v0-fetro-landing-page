@@ -1,6 +1,7 @@
 "use client"
 
 import { User } from "lucide-react"
+import Image from "next/image"
 import { useEffect, useRef } from "react"
 
 const TEAM_VIDEO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_zDDdqN090fDTY7fVEhJj6VIp3qsQ/DOjatWxmUjZqX-zmocLAiG/public/images/background.mp4"
@@ -10,16 +11,19 @@ const team = [
     name: "Joshatoshi",
     role: "CTO",
     bio: "Former enterprise risk quant at leading fintech firm. 15 yrs experience as a Web3 entrepreneur and hardware hacker. Passionate about upcycling and bridging the nostalgic analog era's craftsmanship with cutting-edge technology.",
+    image: "/images/joshatoshi.jpeg",
   },
   {
     name: "マット",
     role: "Senior Engineer",
     bio: "Mechanical Engineer.",
+    image: "https://i2c.seadn.io/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/9e2572f300d337cb0ff8747429670d/c09e2572f300d337cb0ff8747429670d.gif?w=500",
   },
   {
     name: "Sam Hammer",
     role: "3D Modelling Lead",
     bio: "CAD genius in the aerodynamics and motorsports field.",
+    image: "/images/sam-hammer.avif",
   },
 ]
 
@@ -97,9 +101,19 @@ export function TeamSection() {
               key={member.name}
               className="group rounded-lg border border-border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
             >
-              {/* Placeholder Avatar */}
-              <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border-2 border-border bg-muted/80 transition-colors group-hover:border-primary/30">
-                <User className="h-16 w-16 text-muted-foreground" />
+              {/* Avatar */}
+              <div className="mx-auto mb-6 relative h-32 w-32 overflow-hidden rounded-full border-2 border-border bg-muted/80 transition-colors group-hover:border-primary/30">
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center">
+                    <User className="h-16 w-16 text-muted-foreground" />
+                  </div>
+                )}
               </div>
 
               {/* Info */}

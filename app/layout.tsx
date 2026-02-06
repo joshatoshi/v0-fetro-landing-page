@@ -12,20 +12,7 @@ export const metadata: Metadata = {
   description: 'Where retro craftsmanship meets quantum-resistant security. Web3, zero-knowledge proofs, and post-quantum cryptography in beautifully crafted hardware.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/favicon-32x32.png',
     apple: '/apple-icon.png',
   },
 }
