@@ -23,7 +23,7 @@ const team = [
     name: "Sam Hammer",
     role: "3D Modelling Lead",
     bio: "CAD genius in the aerodynamics and motorsports field.",
-    image: "/images/sam-hammer.avif",
+    image: "https://i2c.seadn.io/ethereum/0x1d20a51f088492a0f1c57f047a9e30c9ab5c07ea/9a1cd53f5ab2f0c008971863733137/299a1cd53f5ab2f0c008971863733137.png?w=500",
   },
 ]
 
