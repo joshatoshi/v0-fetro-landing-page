@@ -3,7 +3,7 @@
 import { User } from "lucide-react"
 import { useEffect, useRef } from "react"
 
-const TEAM_VIDEO_URL = "/images/background.mp4"
+const TEAM_VIDEO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_zDDdqN090fDTY7fVEhJj6VIp3qsQ/DOjatWxmUjZqX-zmocLAiG/public/images/background.mp4"
 
 const team = [
   {
@@ -12,13 +12,13 @@ const team = [
     bio: "Former enterprise risk quant at leading fintech firm. 15 yrs experience as a Web3 entrepreneur and hardware hacker. Passionate about upcycling and bridging the nostalgic analog era's craftsmanship with cutting-edge technology.",
   },
   {
-    name: "Gamey",
-    role: "CMO",
-    bio: "Brand strategist with a decade of experience in premium consumer electronics. Believes great products tell great stories.",
+    name: "マット",
+    role: "Senior Engineer",
+    bio: "Mechanical Engineer.",
   },
   {
-    name: "Sam Rivera",
-    role: "Fabrication Design Head",
+    name: "Sam Hammer",
+    role: "3D Modelling Lead",
     bio: "CAD genius in the aerodynamics and motorsports field.",
   },
 ]
