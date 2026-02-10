@@ -15,7 +15,7 @@ const products = [
     description: "A vintage camera-inspired device that proves and verifies image and video provenance in the age of AI. Cryptographic authenticity for every frame.",
     specs: ["Image provenance verification", "Vintage camera aesthetic", "Blockchain attestation"],
     status: "In Development",
-    link: "https://cryptoc.am",
+    link: "https://comingsoon",
     external: true,
     images: [
       "/images/1a.jpeg",
