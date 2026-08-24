@@ -24,10 +24,10 @@ const devices = [
   },
   {
     name: "Camcorder",
-    label: "DSLR1",
+    label: "CAIM1",
     parts: [
       { id: "cooling", label: "Intelligent\nCooling", x: -140, y: -90 },
-      { id: "zk", label: "ZK Attested\nSensor Data", x: 140, y: -50 },
+      { id: "zk", label: "Cryptographically Attested\nSensor Data", x: 140, y: -50 },
       { id: "tamper", label: "Tamper-Proof\nEnvironment", x: -140, y: 20 },
       { id: "blockchain", label: "Blockchain\nProvenance", x: 140, y: 50 },
       { id: "cloud", label: "Cloud Sync", x: 0, y: 110 },
