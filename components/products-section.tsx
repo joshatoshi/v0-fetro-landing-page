@@ -10,15 +10,19 @@ import Image from "next/image"
 const products = [
   {
     icon: Camera,
-    name: "DSLR1",
-    tagline: "Decentralised Secure Ledger Recorder",
-    description: "A vintage camera-inspired device that proves and verifies image and video provenance in the age of AI. Cryptographic authenticity for every frame.",
-    specs: ["Image provenance verification", "Vintage camera aesthetic", "Blockchain attestation"],
+    name: "CAIM1",
+    tagline: "Prove You Were There",
+    description: "In the era of generated reality, authenticity requires proof. CAIM 1 attests the human origin of your footage the second you press record, then prints a physical receipt you can hold.",
+    specs: [
+      "Hardware vault attestation at capture",
+      "Modular lens design, 4\" touch UI",
+      "Onboard printer for physical proofs",
+    ],
     status: "In Development",
-    link: "https://cryptoc.am",
+    link: "https://caimera.one",
     external: true,
     images: [
-      "/images/1a.jpeg",
+      "/images/caim1-bar-table.jpg",
     ],
   },
   {
@@ -92,6 +96,18 @@ function ProductCard({ product }: { product: typeof products[0] }) {
         setIsLearnMoreHovered(false)
       }}
     >
+      {/* Whole-card link for externally hosted products */}
+      {product.external && (
+        <Link
+          href={product.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute inset-0 z-[15] rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        >
+          <span className="sr-only">{`Visit the ${product.name} site`}</span>
+        </Link>
+      )}
+
       {/* Hover Image Overlay */}
       {showImages && (
         <div className="absolute inset-0 bottom-16 z-10 overflow-hidden">
