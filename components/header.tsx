@@ -15,7 +15,20 @@ const navLinks = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [preOrderTooltip, setPreOrderTooltip] = useState(false)
+
+  function goToWaitingList() {
+    setMobileMenuOpen(false)
+
+    const section = document.getElementById("contact")
+    const input = document.getElementById("waiting-list-email") as HTMLInputElement | null
+
+    section?.scrollIntoView({ behavior: "smooth", block: "start" })
+
+    // Focus once the smooth scroll has settled so the browser doesn't fight it.
+    window.setTimeout(() => {
+      input?.focus({ preventScroll: true })
+    }, 700)
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -44,24 +57,9 @@ export function Header() {
         </div>
 
         <div className="hidden lg:flex lg:items-center lg:gap-4">
-          <div className="relative">
-            <Button
-              className="font-mono text-sm"
-              onMouseEnter={() => setPreOrderTooltip(true)}
-              onMouseLeave={() => setPreOrderTooltip(false)}
-              onClick={() => {
-                setPreOrderTooltip(true)
-                setTimeout(() => setPreOrderTooltip(false), 1500)
-              }}
-            >
-              Pre-Order
-            </Button>
-            {preOrderTooltip && (
-              <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-primary px-2 py-1 font-mono text-xs text-primary-foreground">
-                Coming soon
-              </span>
-            )}
-          </div>
+          <Button className="font-mono text-sm" onClick={goToWaitingList}>
+            Get Updates
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -94,22 +92,9 @@ export function Header() {
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-4">
-              <div className="relative">
-                <Button
-                  className="w-full font-mono text-sm"
-                  onClick={() => {
-                    setPreOrderTooltip(true)
-                    setTimeout(() => setPreOrderTooltip(false), 1500)
-                  }}
-                >
-                  Pre-Order
-                </Button>
-                {preOrderTooltip && (
-                  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-primary px-2 py-1 font-mono text-xs text-primary-foreground z-10">
-                    Coming soon
-                  </span>
-                )}
-              </div>
+              <Button className="w-full font-mono text-sm" onClick={goToWaitingList}>
+                Get Updates
+              </Button>
             </div>
           </div>
         </div>

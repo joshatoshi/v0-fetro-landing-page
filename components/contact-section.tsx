@@ -32,8 +32,38 @@ function ComingSoonLink({ children, className }: { children: React.ReactNode; cl
 
 export function ContactSection() {
   const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [joinTooltip, setJoinTooltip] = useState(false)
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [message, setMessage] = useState("")
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (status === "loading") return
+
+    setStatus("loading")
+    setMessage("")
+
+    try {
+      const response = await fetch("/api/waiting-list", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      })
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        setStatus("error")
+        setMessage(data?.error ?? "Something went wrong. Please try again.")
+        return
+      }
+
+      setStatus("success")
+      setMessage("You're on the list. We'll be in touch.")
+      setEmail("")
+    } catch {
+      setStatus("error")
+      setMessage("Network error. Please try again.")
+    }
+  }
 
   return (
     <section id="contact" className="relative py-24 lg:py-32 bg-muted/30">
@@ -49,37 +79,33 @@ export function ContactSection() {
           </p>
 
           <div className="mt-8">
-            <div className="flex gap-3">
+            <form onSubmit={handleSubmit} className="flex gap-3">
+              <label htmlFor="waiting-list-email" className="sr-only">
+                Email address
+              </label>
               <Input
+                id="waiting-list-email"
+                name="email"
                 type="email"
+                required
+                autoComplete="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 font-mono bg-card border-border placeholder:text-muted-foreground focus-visible:ring-primary"
               />
-              <div className="relative">
-                <Button
-                  type="button"
-                  className="font-mono"
-                  onMouseEnter={() => setJoinTooltip(true)}
-                  onMouseLeave={() => setJoinTooltip(false)}
-                  onClick={() => {
-                    setJoinTooltip(true)
-                    setTimeout(() => setJoinTooltip(false), 1500)
-                  }}
-                >
-                  Join
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                {joinTooltip && (
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-primary px-2 py-1 font-mono text-xs text-primary-foreground">
-                    Coming soon
-                  </span>
-                )}
-              </div>
-            </div>
-            <p className="mt-3 font-mono text-xs text-muted-foreground">
-              No spam. Unsubscribe anytime.
+              <Button type="submit" className="font-mono" disabled={status === "loading"}>
+                {status === "loading" ? "Joining" : "Join"}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </form>
+            <p
+              aria-live="polite"
+              className={`mt-3 font-mono text-xs ${
+                status === "error" ? "text-destructive" : status === "success" ? "text-primary" : "text-muted-foreground"
+              }`}
+            >
+              {message || "No spam. Unsubscribe anytime."}
             </p>
           </div>
 
