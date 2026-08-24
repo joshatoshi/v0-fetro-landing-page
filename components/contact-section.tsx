@@ -113,11 +113,11 @@ export function ContactSection() {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
             <ComingSoonLink className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
               <Mail className="h-5 w-5" />
-              <span className="font-mono text-sm">hello@fetro.com</span>
+              <span className="font-mono text-sm">hello@caimera.xyz</span>
             </ComingSoonLink>
             <ComingSoonLink className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
               <Twitter className="h-5 w-5" />
-              <span className="font-mono text-sm">@fetrodev</span>
+              <span className="font-mono text-sm">@caimerax</span>
             </ComingSoonLink>
             <div className="flex items-center gap-3 text-muted-foreground">
               <MapPin className="h-5 w-5" />
